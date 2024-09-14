@@ -1,0 +1,25 @@
+<div class="container">
+  <header>
+    <div class="auth-buttons">
+      <%= link_to 'ログイン', login_path, class: 'button' %>
+      <%= link_to '新規登録', signup_path, class: 'button' %>
+    </div>
+    <h1>ECO TRACK</h1>
+  </header>
+
+  <main>
+    <section class="posts">
+      <h2>ECO活動投稿一覧</h2>
+      <div class="posts-grid">
+        <% @posts.each do |post| %>
+          <div class="post-card">
+            <%= image_tag post.photo.url, class: "post-image" if post.photo.attached? %>
+            <h3><%= post.eco_category %></h3>
+            <p><%= truncate(post.content, length: 100) %></p>
+            <%= link_to "詳細", post_path(post), class: "detail-link" %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </main>
+</div>

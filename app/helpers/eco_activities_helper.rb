@@ -1,0 +1,2 @@
+module EcoActivitiesHelper
+end
